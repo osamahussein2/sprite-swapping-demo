@@ -22,17 +22,15 @@ void draw(){
   image(map, 0, 0, map.width * 2, map.height * 2);
   
   coin.display();
+  if(coin.collision(character.position.x, character.position.y, character.xWidth, character.yHeight)){
+    coin = new Coin();
+  }
   
   character.move();
   character.display();
 }
 
 void keyPressed(){
-  //testing for debug purposes (before collision detection is added)
-  if(key == ' '){
-    coin = new Coin();
-  }
-  
   if (keyCode == UP) {
     character.velocity.y -= 1;
   }
