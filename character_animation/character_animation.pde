@@ -6,11 +6,24 @@
 
 PImage map;
 
+Coin coin;
+
 void setup(){
   size(400, 400);
   map = loadImage("sample_map.png");
+  
+  coin = new Coin();
 }
 
 void draw(){
   image(map, 0, 0, map.width * 2, map.height * 2);
+  
+  coin.display();
+}
+
+void keyPressed(){
+  //testing for debug purposes (before collision detection is added)
+  if(key == ' '){
+    coin = new Coin();
+  }
 }
