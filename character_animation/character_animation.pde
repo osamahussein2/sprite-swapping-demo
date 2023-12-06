@@ -9,17 +9,31 @@ SoundFile coinSound;
 
 PImage map;
 
+PImage[] rotater;
+
 Coin coin;
 Hero character;
 
 void setup(){
   size(400, 400);
   map = loadImage("sample_map.png");
-  
+  rotater = getImages();
   coin = new Coin();
   coinSound = new SoundFile(this, "coin_c_02-102844.wav");
   
   character = new Hero();
+}
+
+PImage[] getImages()
+{
+  PImage[] images = new PImage[6];
+  
+  for(int i = 0; i < images.length; i++)
+  {
+    images[i] = loadImage("star coin rotate " + (i + 1) + ".png");
+  }
+  
+  return images;
 }
 
 void draw(){

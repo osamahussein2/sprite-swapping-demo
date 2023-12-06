@@ -2,13 +2,23 @@ class Coin {
   PVector position;
   float r = 10;
   
+  int frame = 0;
+  
   Coin(){
     position = new PVector(random(width-50), random(height-50));
   }
   
   void display(){
-    fill(250, 255, 5);
-    circle(position.x, position.y, 2*r);
+    //fill(250, 255, 5);
+    //circle(position.x, position.y, 2*r);
+    
+    imageMode(CENTER);
+    image(rotater[frame], position.x, position.y);
+    
+    if(frameCount % 10 == 0)
+    {
+      frame = (frame + 1) % rotater.length;
+    }
   }
   
   boolean collision(float x, float y, float w, float h){
