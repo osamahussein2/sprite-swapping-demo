@@ -4,6 +4,9 @@
 //footstep audio from https://www.kenney.nl/assets/rpg-audio
 //coin audio from https://pixabay.com/sound-effects/coin-c-02-102844/
 
+import processing.sound.*;
+SoundFile coinSound;
+
 PImage map;
 
 Coin coin;
@@ -14,6 +17,7 @@ void setup(){
   map = loadImage("sample_map.png");
   
   coin = new Coin();
+  coinSound = new SoundFile(this, "coin_c_02-102844.wav");
   
   character = new Hero();
 }
