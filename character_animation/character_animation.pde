@@ -6,16 +6,30 @@
 
 PImage map;
 
+PImage[] rotater;
+
 Coin coin;
 Hero character;
 
 void setup(){
   size(400, 400);
   map = loadImage("sample_map.png");
-  
+  rotater = getImages();
   coin = new Coin();
   
   character = new Hero();
+}
+
+PImage[] getImages()
+{
+  PImage[] images = new PImage[6];
+  
+  for(int i = 0; i < images.length; i++)
+  {
+    images[i] = loadImage("star coin rotate " + (i + 1) + ".png");
+  }
+  
+  return images;
 }
 
 void draw(){
