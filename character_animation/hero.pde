@@ -5,6 +5,8 @@ class Hero {
   PVector velocity;
   int speed = 2;
   
+  SoundFile footSteps;
+  
   PImage spriteSheet;
   int xOffset = 0;
   int yOffset = 0;
@@ -44,6 +46,17 @@ class Hero {
     else
     {
       frame = (frame + 1) % frames;
+      
+      if (frame == 1 && frame == 3 && !footSteps.isPlaying())
+      {
+        footSteps.play();
+        footSteps.rate(random(0.9, 1.1));
+        
+        if(footSteps.isPlaying())
+        {
+          footSteps.stop();
+        }
+      }
     }
     }
   }

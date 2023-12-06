@@ -11,6 +11,8 @@ PImage[] rotater;
 Coin coin;
 Hero character;
 
+import processing.sound.*;
+
 void setup(){
   size(400, 400);
   map = loadImage("sample_map.png");
@@ -18,6 +20,7 @@ void setup(){
   coin = new Coin();
   
   character = new Hero();
+  character.footSteps = new SoundFile(this, "footstep00.wav");
 }
 
 PImage[] getImages()
